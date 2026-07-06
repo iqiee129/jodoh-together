@@ -44,6 +44,6 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction \
     && chmod -R 775 storage bootstrap/cache \
     && chmod +x /usr/local/bin/start.sh
 
-EXPOSE 80
+EXPOSE 10000
 
 CMD ["start.sh"]
