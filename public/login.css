@@ -1,0 +1,412 @@
+
+        :root {
+            --brown: #563520;
+            --brown-light: #966341;
+            --rust: #88473f;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Inter", sans-serif;
+            color: var(--white);
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 34px 18px;
+        }
+
+        .login-page {
+            width: min(760px, 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .brand {
+            font-family: "Pacifico", cursive;
+            font-size: 34px;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.32);
+        }
+
+        .auth-card {
+            width: min(518px, 100%);
+            min-height: 290px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+        }
+
+        .admin-auth-card {
+            min-height: 330px;
+        }
+
+        .form-panel,
+        .message-panel {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            min-height: 290px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 38px 20px;
+            transition: transform 0.65s ease-in-out, opacity 0.35s ease;
+        }
+
+        .admin-auth-card .form-panel,
+        .admin-auth-card .message-panel {
+            min-height: 330px;
+        }
+
+        .form-panel {
+            background: rgba(255, 255, 255, 0.94);
+            color: var(--rust);
+        }
+
+        .login-panel {
+            left: 0;
+        }
+
+        .register-panel {
+            left: 50%;
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        .message-panel {
+            background: var(--brown);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .signup-panel {
+            left: 50%;
+        }
+
+        .return-panel {
+            left: 0;
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .auth-card.register-mode .login-panel {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .auth-card.register-mode .signup-panel {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        .auth-card.register-mode .register-panel {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .auth-card.register-mode .return-panel {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: 28px;
+            line-height: 1;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            max-width: 220px;
+            font-size: 10px;
+            color: #7b4a35;
+            letter-spacing: 1.3px;
+            margin-bottom: 19px;
+        }
+
+        .login-form {
+            width: 172px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .register-form {
+            width: 218px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 12px;
+        }
+
+        .form-input {
+            width: 100%;
+            height: 24px;
+            border: 0;
+            border-radius: 999px;
+            background: var(--brown-light);
+            color: var(--white);
+            text-align: center;
+            font-size: 10px;
+            outline: none;
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .date-field {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .date-field .form-input {
+            flex: 1;
+        }
+
+        .date-icon {
+            display: block;
+            width: 16px;
+            height: 16px;
+            border: 1.5px solid var(--brown);
+            border-radius: 2px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .date-icon::before,
+        .date-icon::after,
+        .date-button::before,
+        .date-button::after {
+            content: "";
+            position: absolute;
+        }
+
+        .date-icon::before,
+        .date-icon::after {
+            left: 2px;
+            right: 2px;
+        }
+
+        .date-icon::before {
+            top: 4px;
+            border-top: 1.5px solid var(--brown);
+        }
+
+        .date-icon::after {
+            top: 7px;
+            bottom: 2px;
+            background:
+                linear-gradient(90deg, transparent 31%, var(--brown) 31%, var(--brown) 42%, transparent 42%, transparent 65%, var(--brown) 65%, var(--brown) 76%, transparent 76%),
+                linear-gradient(0deg, transparent 42%, var(--brown) 42%, var(--brown) 54%, transparent 54%);
+            opacity: 0.85;
+        }
+
+        .date-button {
+            width: 18px;
+            height: 18px;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            padding: 1px;
+            position: relative;
+        }
+
+        .date-button::before,
+        .date-button::after {
+            top: 0;
+            width: 2px;
+            height: 5px;
+            border-radius: 999px;
+            background: var(--brown);
+            z-index: 1;
+        }
+
+        .date-button::before {
+            left: 5px;
+        }
+
+        .date-button::after {
+            right: 5px;
+        }
+
+        .date-input-native {
+            position: absolute;
+            right: 0;
+            width: 18px;
+            height: 18px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .btn {
+            width: 100%;
+            height: 26px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            background: transparent;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .login-btn {
+            margin-top: 3px;
+            border: 1.5px solid var(--brown-light);
+            color: #7c3f2f;
+        }
+
+        .register-btn {
+            grid-column: 1 / -1;
+            border: 1.5px solid var(--brown-light);
+            color: #7c3f2f;
+        }
+
+        .login-btn:hover,
+        .register-btn:hover {
+            background: var(--brown-light);
+            color: var(--white);
+        }
+
+        .message-heading {
+            font-size: 16px;
+            line-height: 1.45;
+            font-weight: 800;
+            margin-bottom: 52px;
+        }
+
+        .signup-btn,
+        .return-btn {
+            width: 172px;
+            border: 1.5px solid var(--white);
+            color: var(--white);
+        }
+
+        .admin-return-link,
+        .admin-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .admin-link {
+            color: #7c3f2f;
+            font-size: 10px;
+            font-weight: 700;
+            margin-top: -6px;
+        }
+
+        .admin-login-note {
+            color: #7b4a35;
+            font-size: 10px;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .signup-btn:hover,
+        .return-btn:hover {
+            background: var(--white);
+            color: var(--brown);
+        }
+
+        .register-title {
+            max-width: 210px;
+            font-size: 22px;
+            line-height: 1.03;
+            font-weight: 800;
+            text-align: center;
+            color: #a35a4f;
+            margin-bottom: 18px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                align-items: flex-start;
+                padding-top: 52px;
+            }
+
+            .brand {
+                font-size: 30px;
+            }
+
+            .auth-card {
+                width: min(360px, 100%);
+                min-height: 520px;
+            }
+
+            .admin-auth-card {
+                min-height: 600px;
+            }
+
+            .form-panel,
+            .message-panel {
+                width: 100%;
+                min-height: 260px;
+                padding: 34px 32px;
+            }
+
+            .login-panel,
+            .register-panel {
+                left: 0;
+            }
+
+            .signup-panel,
+            .return-panel {
+                left: 0;
+                top: 260px;
+            }
+
+            .admin-auth-card .signup-panel {
+                top: 300px;
+            }
+
+            .admin-auth-card .form-panel,
+            .admin-auth-card .message-panel {
+                min-height: 300px;
+            }
+
+            .register-panel {
+                transform: translateX(100%);
+            }
+
+            .return-panel {
+                transform: translateX(-100%);
+            }
+
+            .auth-card.register-mode .login-panel {
+                transform: translateX(-100%);
+            }
+
+            .auth-card.register-mode .signup-panel {
+                transform: translateX(100%);
+            }
+
+            .message-heading {
+                margin-bottom: 30px;
+            }
+        }
+    
