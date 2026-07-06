@@ -182,9 +182,9 @@ $register = function () {
     </div>
 @endif
 
-                <button type="button" class="mobile-switch" wire:click="setMode('register')">
-                    New here? Create an account
-                </button>
+                <a href="{{ route('register') }}" class="mobile-switch">
+    New here? Create an account
+</a>
             </form>
         </div>
 
@@ -253,9 +253,9 @@ $register = function () {
                     </span>
                 </button>
 
-                <button type="button" class="mobile-switch" wire:click="setMode('login')">
-                    Already have an account? Login
-                </button>
+                <a href="{{ route('login') }}" class="mobile-switch">
+    Already have an account? Login
+</a>
             </form>
         </div>
 
@@ -270,9 +270,9 @@ $register = function () {
                         <h2>Already have an account?</h2>
                         <p>Login to continue managing your wedding checklist, budget, vendors, and calendar.</p>
 
-                        <button type="button" class="ghost-btn" wire:click="setMode('login')">
-                            Login
-                        </button>
+                        <a href="{{ route('login') }}" class="ghost-btn">
+    Login
+</a>
                     </div>
                 </div>
 
@@ -285,9 +285,9 @@ $register = function () {
                         <h2>New to Jodoh Together?</h2>
                         <p>Create your account and start planning your wedding in one beautiful dashboard.</p>
 
-                        <button type="button" class="ghost-btn" wire:click="setMode('register')">
-                            Register
-                        </button>
+                        <a href="{{ route('register') }}" class="ghost-btn">
+    Register
+</a>
                     </div>
                 </div>
             </div>
@@ -521,18 +521,22 @@ $register = function () {
         }
 
         .ghost-btn {
-            height: 46px;
-            padding: 0 34px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.85);
-            background: transparent;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 900;
-            font-family: inherit;
-            cursor: pointer;
-            transition: 0.25s ease;
-        }
+    height: 46px;
+    padding: 0 34px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.25s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
         .ghost-btn:hover {
             background: #ffffff;
